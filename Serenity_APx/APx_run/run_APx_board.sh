@@ -5,7 +5,7 @@ bitfile=/scratch/dhoang/SC_multiboard/Serenity_APx/bitfiles/SC_APd1.bit
 apx-prime -H localhost -c config.ini -s "device fpga.bitfile=$bitfile"
 
 #Loop through everything
-N=0
+N=83
 
 #Make output directory
 mkdir -p ../CL2_APx_outputs
