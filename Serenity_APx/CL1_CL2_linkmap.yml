@@ -1,0 +1,9 @@
+link_map:
+  - l1BarrelPhi1-outputs: 0-5:80-85
+  - l1BarrelPhi2-outputs: 0-5:31-36
+  - l1HGCalNeg-outputs:   0-2:28-30
+  - l1HGCalPos-outputs:   0-2:37-39
+  - l1BarrelPhi3-outputs: 0-5:40-45
+  - l1HGCalNoTK-outputs:  0-2:86-88
+  - l1HFNeg-outputs:      0-2:89-91
+  - l1HFPos-outputs:      0-2:92-94

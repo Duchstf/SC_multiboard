@@ -1,0 +1,8 @@
+Remapping [0, 1, 2, 3, 4, 5] to [80, 81, 82, 83, 84, 85] in l1BarrelPhi1-outputs_0.txt.
+Remapping [0, 1, 2, 3, 4, 5] to [31, 32, 33, 34, 35, 36] in l1BarrelPhi2-outputs_0.txt.
+Remapping [0, 1, 2] to [28, 29, 30] in l1HGCalNeg-outputs_0.txt.
+Remapping [0, 1, 2] to [37, 38, 39] in l1HGCalPos-outputs_0.txt.
+Remapping [0, 1, 2, 3, 4, 5] to [40, 41, 42, 43, 44, 45] in l1BarrelPhi3-outputs_0.txt.
+Remapping [0, 1, 2] to [86, 87, 88] in l1HGCalNoTK-outputs_0.txt.
+Remapping [0, 1, 2] to [89, 90, 91] in l1HFNeg-outputs_0.txt.
+Remapping [0, 1, 2] to [92, 93, 94] in l1HFPos-outputs_0.txt.
