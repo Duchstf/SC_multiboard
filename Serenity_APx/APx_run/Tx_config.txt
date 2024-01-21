@@ -1,0 +1,2 @@
+BUFFER      OPERATION   COLUMN   BC0_DELAY    LOOP_MODE    LAST_ADDR    SUPPRESS_IDLE
+T64    stream_capture       0        32075         single        0x3FF            false

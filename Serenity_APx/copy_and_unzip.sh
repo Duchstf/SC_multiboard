@@ -1,7 +1,5 @@
 #!/bin/bash
 PATTERN_PATH=/data/dhoang/correlator-common/patternfiles
-
-
 N=83
 
 for i in $(seq 0 $N)
