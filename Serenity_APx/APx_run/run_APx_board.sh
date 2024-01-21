@@ -1,3 +1,10 @@
+#Set the bitfile path
+bitfile=/scratch/dhoang/SC_multiboard/Serenity_APx/bitfiles/SC_APd1.bit
+
+#Program the FPGA
+apx-prime -H localhost -c config.ini -s "device fpga.bitfile=$bitfile"
+
+#Loop through everything
 N=1
 
 for i in $(seq 0 $N)
