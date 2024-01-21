@@ -7,6 +7,10 @@ apx-prime -H localhost -c config.ini -s "device fpga.bitfile=$bitfile"
 #Loop through everything
 N=0
 
+#Make output directory
+mkdir -p ../CL2_APx_outputs
+
+#Run the FPGA
 for i in $(seq 0 $N)
 do
     sh pattern_test.sh \
@@ -14,5 +18,5 @@ do
     Rx_config.txt \
     Tx_config.txt \
     ../CL2_APx_inputs/l2_apx_SC_inputs_$i.txt \
-    ../CL2_APx_outputs/l2_apx_SC_output_$i.txt.txt 0 0
+    ../CL2_APx_outputs/l2_apx_SC_output_$i.txt 0 0
 done
