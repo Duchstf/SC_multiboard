@@ -18,7 +18,7 @@ def main():
     with open("CL1_CL2_linkmap.yml", 'r') as stream:
         link_map = yaml.safe_load(stream)['link_map']
     
-    for i in range(0,1):
+    for i in range(0,84):
         for board in link_map:
             filename = '{}_{}.txt'.format(list(board.keys())[0],i)
             links = list(board.values())[0]
