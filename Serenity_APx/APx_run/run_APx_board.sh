@@ -1,5 +1,5 @@
 #Set the bitfile path
-bitfile=/scratch/dhoang/SC_multiboard/Serenity_APx/bitfiles/SC_APd1.bit
+bitfile=/scratch/dhoang/SC_multiboard/Serenity_APx/bitfiles/SC_APd1_v2.bit
 
 #Program the FPGA
 apx-prime -H localhost -c config.ini -s "device fpga.bitfile=$bitfile"
@@ -14,7 +14,7 @@ mkdir -p ../CL2_APx_outputs
 for i in $(seq 0 $N)
 do
     sh pattern_test.sh \
-    sparrow4-linux \
+    sparrow5-linux \
     Rx_config.txt \
     Tx_config.txt \
     ../CL2_APx_inputs/l2_apx_SC_inputs_$i.txt \
