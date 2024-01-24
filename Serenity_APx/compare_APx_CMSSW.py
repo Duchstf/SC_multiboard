@@ -72,30 +72,30 @@ def distributions(APx_collection, CMSSW_collection):
     CMSSW_df = extract_fields(CMSSW_df)
     
     #Plot the pT
-    plt.hist(APx_df['pt'].to_numpy(), bins=20, label=r'APx $p_T$', alpha=0.8)
-    plt.hist(CMSSW_df['pt'].to_numpy(), bins=20, label=r'CMSSW $p_T$', alpha=0.3)
+    plt.hist(APx_df['pt'].to_numpy(), bins=20, label=r'APx $p_T$', alpha=0.5, hatch='o')
+    plt.hist(CMSSW_df['pt'].to_numpy(), bins=20, label=r'CMSSW $p_T$', alpha=0.5, hatch='x')
     plt.xlabel(r'$p_T$ [GeV]')
     plt.ylabel(r'Number of Jets')
     plt.legend(loc='best')
-    plt.savefig('plots/pt_dist.png')
+    plt.savefig('plots/pt_dist.pdf', bbox_inches='tight')
     plt.close()
     
     #Plot eta
-    plt.hist(APx_df['eta'].to_numpy(), bins=20, label=r'APx $\eta$', alpha=0.6)
-    plt.hist(CMSSW_df['eta'].to_numpy(), bins=20, label=r'CMSSW $\eta$', alpha=0.6)
+    plt.hist(APx_df['eta'].to_numpy(), bins=20, label=r'APx $\eta$', alpha=0.5, hatch='o')
+    plt.hist(CMSSW_df['eta'].to_numpy(), bins=20, label=r'CMSSW $\eta$', alpha=0.5, hatch='x')
     plt.xlabel(r'$\eta$')
     plt.ylabel(r'Number of Jets')
     plt.legend(loc='best')
-    plt.savefig('plots/eta_dist.png')
+    plt.savefig('plots/eta_dist.pdf', bbox_inches='tight')
     plt.close()
     
     #Plot phi
-    plt.hist(APx_df['phi'].to_numpy(), bins=20, label=r'APx $\phi$', alpha=0.6)
-    plt.hist(CMSSW_df['phi'].to_numpy(), bins=20, label=r'CMSSW $\phi$', alpha=0.6)
+    plt.hist(APx_df['phi'].to_numpy(), bins=20, label=r'APx $\phi$', alpha=0.5, hatch='o')
+    plt.hist(CMSSW_df['phi'].to_numpy(), bins=20, label=r'CMSSW $\phi$', alpha=0.5, hatch='x')
     plt.xlabel(r'$phi$')
     plt.ylabel(r'Number of Jets')
     plt.legend(loc='best')
-    plt.savefig('plots/phi_dist.png')
+    plt.savefig('plots/phi_dist.pdf', bbox_inches='tight')
     plt.close()
     
 def bit_to_bit(APx_collection, CMSSW_collection):
@@ -107,13 +107,13 @@ def bit_to_bit(APx_collection, CMSSW_collection):
     num_unmatched_jets = 0
     
     for i in range(min(len(APx_collection),len(CMSSW_collection))):
-        print('Jet index {}.'.format(i))
-        print('APx Jet Output: ', APx_collection[i])
-        print('CMSSW Jet Output: ', CMSSW_collection[i])
-        print('Equal: {}'.format(APx_collection[i] == CMSSW_collection[i]))
-        print('------------')
+        # print('Jet index {}.'.format(i))
+        # print('APx Jet Output: ', APx_collection[i])
+        # print('CMSSW Jet Output: ', CMSSW_collection[i])
+        # print('Equal: {}'.format(APx_collection[i] == CMSSW_collection[i]))
+        # print('------------')
         
-        if APx_collection[i] == CMSSW_collection[i]:
+        if APx_collection[i] in CMSSW_collection:
             num_matched_jets += 1
         else:
             num_unmatched_jets += 1
@@ -136,26 +136,26 @@ def bit_to_bit(APx_collection, CMSSW_collection):
     ax.set_xlim(right=max(num_jets)*1.2)
 
     plt.savefig('plots/bit_matching_1file.pdf', bbox_inches='tight')
+    plt.close()
     
 
 def main():
     pass
 
     #Number of files
-    N=0
+    N=83
     
     APx_collection = []
     CMSSW_collection = []
     
     for i in range(0,N+1):
         #Get APx output 
-        with open("l2_apx_SC_outputs_{}.txt".format(i), 'r') as apx:
+        with open("CL2_APx_outputs/l2_apx_SC_output_{}.txt".format(i), 'r') as apx:
             for j, line in enumerate(apx):
                 if j > 2: #Ignore the first 2 lines
-                    jet = line[16:].rstrip('\n').split()
+                    jet = line[10:].rstrip('\n').split()
                     if len(jet) > 0 and jet[0][2:] != '0000000000000000':    
                         APx_collection += [jet[0][2:].lower()] #Ignore the 0x part 
-                    
                     
         with open("CL2_CMSSW_outputs/L1CTSCJetsPatterns_{}.txt".format(i), 'r') as cmssw:
             for j, line in enumerate(cmssw):
@@ -165,6 +165,7 @@ def main():
                         CMSSW_collection += jet #Ignore the 0x part 
     
     #bit_to_bit(APx_collection, CMSSW_collection)
+    bit_to_bit(APx_collection, CMSSW_collection)
     distributions(APx_collection, CMSSW_collection)
     
 main()
