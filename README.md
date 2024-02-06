@@ -10,3 +10,4 @@ Documentation for multiboard testing for SeededCone algorithm.
   ```
    ./utils/setup_cmssw.sh -run CMSSW_13_3_0_pre3 cms-l1t-offline:phase2-l1t-integration-13_3_0_pre3 phase2-l1t-1330pre3_v14
   ```
+* CodiMD document for running the Serenity (CL1) - APx (CL2) test: https://codimd.web.cern.ch/78g_R7cXR9-x6RCvdJE_Qw?view 
