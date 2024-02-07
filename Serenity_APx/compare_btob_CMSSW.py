@@ -72,31 +72,31 @@ def distributions(APx_collection, CMSSW_collection):
     CMSSW_df = extract_fields(CMSSW_df)
     
     #Plot the pT
-    plt.hist(APx_df['pt'].to_numpy(), bins=20, label=r'APx $p_T$', alpha=0.5, hatch='o')
+    plt.hist(APx_df['pt'].to_numpy(), bins=20, label=r'Serenity->APx $p_T$', alpha=0.5, hatch='o')
     plt.hist(CMSSW_df['pt'].to_numpy(), bins=20, label=r'CMSSW $p_T$', alpha=0.5, hatch='x')
     plt.xlabel(r'$p_T$ [GeV]')
     plt.ylabel(r'Number of Jets')
     plt.legend(loc='best')
     plt.yscale('log')
-    plt.savefig('plots/pt_dist.pdf', bbox_inches='tight')
+    plt.savefig('plots/pt_dist_btob.pdf', bbox_inches='tight')
     plt.close()
     
     #Plot eta
-    plt.hist(APx_df['eta'].to_numpy(), bins=20, label=r'APx $\eta$', alpha=0.5, hatch='o')
+    plt.hist(APx_df['eta'].to_numpy(), bins=20, label=r'Serenity->APx $\eta$', alpha=0.5, hatch='o')
     plt.hist(CMSSW_df['eta'].to_numpy(), bins=20, label=r'CMSSW $\eta$', alpha=0.5, hatch='x')
     plt.xlabel(r'$\eta$')
     plt.ylabel(r'Number of Jets')
     plt.legend(loc='best')
-    plt.savefig('plots/eta_dist.pdf', bbox_inches='tight')
+    plt.savefig('plots/eta_dist_btob.pdf', bbox_inches='tight')
     plt.close()
     
     #Plot phi
-    plt.hist(APx_df['phi'].to_numpy(), bins=20, label=r'APx $\phi$', alpha=0.5, hatch='o')
+    plt.hist(APx_df['phi'].to_numpy(), bins=20, label=r'Serenity->APx $\phi$', alpha=0.5, hatch='o')
     plt.hist(CMSSW_df['phi'].to_numpy(), bins=20, label=r'CMSSW $\phi$', alpha=0.5, hatch='x')
-    plt.xlabel(r'$phi$')
+    plt.xlabel(r'$\phi$')
     plt.ylabel(r'Number of Jets')
     plt.legend(loc='best')
-    plt.savefig('plots/phi_dist.pdf', bbox_inches='tight')
+    plt.savefig('plots/phi_dist_btob.pdf', bbox_inches='tight')
     plt.close()
     
 def bit_to_bit(APx_collection, CMSSW_collection):
@@ -136,7 +136,7 @@ def bit_to_bit(APx_collection, CMSSW_collection):
     ax.bar_label(hbars)
     ax.set_xlim(right=max(num_jets)*1.2)
 
-    plt.savefig('plots/bit_matching.pdf', bbox_inches='tight')
+    plt.savefig('plots/bit_matching_btob.pdf', bbox_inches='tight')
     plt.close()
     
 
@@ -151,7 +151,7 @@ def main():
     
     for i in range(0,N+1):
         #Get APx output 
-        with open("CL2_APx_outputs/l2_apx_SC_output_{}.txt".format(i), 'r') as apx:
+        with open("cl1_cl2_APx_outputs/outputs.{}.txt".format(i), 'r') as apx:
             for j, line in enumerate(apx):
                 if j > 2: #Ignore the first 2 lines
                     jet = line[10:].rstrip('\n').split()
