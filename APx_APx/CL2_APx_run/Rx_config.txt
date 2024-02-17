@@ -1,7 +1,8 @@
 BUFFER OPERATION       COLUMN  BC0_DELAY LOOP_MODE
-R32    static_playback      0         0    loop
-R33    static_playback      1         0    loop
-R34    static_playback      2         0    loop
-R35    static_playback      3         0    loop
-R36    static_playback      4         0    loop
-R37    static_playback      5         0    loop
+R28    static_playback      0         0    loop
+R32    static_playback      1         0    loop
+R33    static_playback      2         0    loop
+R34    static_playback      3         0    loop
+R35    static_playback      4         0    loop
+R36    static_playback      5         0    loop
+R37    static_playback      6         0    loop

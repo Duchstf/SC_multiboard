@@ -28,7 +28,7 @@ def main():
                         clock = stripped_line[0]
                         
                         #Convert link data
-                        data = stripped_line[1:]
+                        data = ['0x0000000000000000'] + stripped_line[1:]
                         
                         apx_dict[clock] = data
         
@@ -43,7 +43,7 @@ def main():
             #Create link lables
             print("#LinkLabel", file=ostr, end='')
             print("           LINK_00", file=ostr, end='')
-            label_list = ['               LINK_{:02d}'.format(x) for x in range(1,6)]
+            label_list = ['               LINK_{:02d}'.format(x) for x in range(1,7)]
             print(''.join(label_list), file=ostr)
             
             print("#BeginData", file=ostr)
