@@ -3,7 +3,7 @@
 Documentation for multiboard testing for SeededCone algorithm. 
 
 * [Serenity (CL1) -> APx (CL2)](https://github.com/Duchstf/SC_multiboard/tree/main/Serenity_APx)
-* APx (CL1) -> APx (CL2)
+* [APx (CL1) -> APx (CL2)](https://github.com/Duchstf/SC_multiboard/tree/main/APx_APx)
 
 * Pattern files are generated with this corrrelator-common branch: https://gitlab.cern.ch/cms-cactus/phase2/firmware/correlator-common/-/tree/StoA_Jan24?ref_type=heads
   * Run:
