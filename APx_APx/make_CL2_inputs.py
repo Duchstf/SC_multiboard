@@ -12,7 +12,7 @@ def main():
     #Create data entries for each clock
     for clock in range(0,1024): #Each file holds maximum 1024 clocks
         apx_clock = f"0x{clock:04x}"
-        apx_dict[apx_clock] = ['0x0000000000000000'] * 6
+        apx_dict[apx_clock] = ['0x0000000000000000'] * 100
     
     for i in range(0,1):
         #Input file name
@@ -28,9 +28,15 @@ def main():
                         clock = stripped_line[0]
                         
                         #Convert link data
-                        data = ['0x0000000000000000'] + stripped_line[1:]
+                        data = stripped_line[1:]
                         
-                        apx_dict[clock] = data
+                        #Remapped the CL1 outputs
+                        apx_dict[clock][32] = data[0]
+                        apx_dict[clock][33] = data[1]
+                        apx_dict[clock][34] = data[2]
+                        apx_dict[clock][35] = data[3]
+                        apx_dict[clock][36] = data[4]
+                        apx_dict[clock][37] = data[5]
         
         #Print this all out in an APx formmatted file
         APx_filename='CL2_APx_inputs/CL2_input_{}.txt'.format(i)
@@ -43,7 +49,7 @@ def main():
             #Create link lables
             print("#LinkLabel", file=ostr, end='')
             print("           LINK_00", file=ostr, end='')
-            label_list = ['               LINK_{:02d}'.format(x) for x in range(1,7)]
+            label_list = ['               LINK_{:02d}'.format(x) for x in range(1,100)]
             print(''.join(label_list), file=ostr)
             
             print("#BeginData", file=ostr)
