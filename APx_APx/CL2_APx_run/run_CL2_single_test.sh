@@ -12,5 +12,5 @@ sh pattern_test.sh \
 sparrow5-linux \
 Rx_config.txt \
 Tx_config.txt \
-../CL1_APx_barrel_outputs/CL1_inputs_0.txt \
-../CL2_APx_outputs/CL2_out_0.txt 0 0
+../CL2_APx_inputs/CL2_input_0.txt \
+../CL2_APx_outputs/CL2_output_0.txt 0 0
