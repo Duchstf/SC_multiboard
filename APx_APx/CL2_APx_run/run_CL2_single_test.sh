@@ -9,7 +9,7 @@ mkdir -p ../CL2_APx_outputs
 
 #Run the FPGA
 sh pattern_test.sh \
-sparrow5-linux \
+sparrow12-linux \
 Rx_config.txt \
 Tx_config.txt \
 ../CL2_APx_inputs/CL2_input_0.txt \
