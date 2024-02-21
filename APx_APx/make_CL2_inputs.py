@@ -14,9 +14,9 @@ def main():
         apx_clock = f"0x{clock:04x}"
         apx_dict[apx_clock] = ['0x0000000000000000'] * 100
     
-    for i in range(0,1):
+    for i in range(0,10):
         #Input file name
-        filename = 'CL1_out_{}.txt'.format(i)
+        filename = 'out{}a_hw.txt'.format(i)
         
         #Read the file in
         with open("CL1_APx_barrel_outputs/{}".format(filename), 'r') as istr:
